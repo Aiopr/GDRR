@@ -12,13 +12,6 @@ using namespace std;
 /****************************************************************************************/
 #pragma region Instance
 
-struct Coord {
-    int x;
-    int y;
-
-    Coord(int x, int y) : x(x), y(y) {}
-};
-
 struct Rectangle {
     int w;
     int h;
@@ -169,3 +162,25 @@ inline int Rand(int st, int ed) // return a random number ranging from 0 to x;
 
 /****************************************************************************************/
 
+
+
+
+/****************************************************************************************/
+#pragma region Print
+
+struct Coord {
+    int x;
+    int y;
+
+    Coord(int x, int y) : x(x), y(y) {}
+};
+
+struct Layout {
+    int index; 
+    int bin;
+    Coord o;
+    Rectangle rec;
+};
+
+#pragma endregion
+/****************************************************************************************/

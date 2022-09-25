@@ -15,6 +15,9 @@ const double time_limit = 5000; // 5s
 const double evaluation_power = 1.2;
 
 
+// IO Files
+fstream outfile("test.out");
+
 /************************************************************************/
 #pragma region Instance 
 
@@ -59,7 +62,7 @@ void build_instance(const char *filename)
 
 void print(Node* node)
 {
-    cout << node << " " << node->rec.w << " " << node->rec.h << " " << node->type << endl;
+    cerr << node << " " << node->rec.w << " " << node->rec.h << " " << node->type << endl;
     for(auto child : node->children)
     {
         print(child);
@@ -204,7 +207,7 @@ void insert(Node *space, Item item, bool rotate)
              -> node splits into 2 new nodes on same level
          */
 
-        if(space->next_cut_orientation == 1 && item_shape.h == space->height()) 
+        if(space->next_cut_orientation == 1 && item_shape.h == space->height() && item_shape.h != bin.h) 
         //current cut is performed vertically
         {
             Node* remain_node = new Node;
@@ -217,9 +220,9 @@ void insert(Node *space, Item item, bool rotate)
             space->type = item.index;
             return;
         }
-        if(space->next_cut_orientation == 0 && item_shape.w == space->width()) 
+        if(space->next_cut_orientation == 0 && item_shape.w == space->width() && item_shape.w != bin.w) 
         //current cut is performed horizontally
-        {
+        {    
             Node* remain_node = new Node;
             remain_node->parent = space->parent;
             space->parent->children.push_back(remain_node);
@@ -241,7 +244,7 @@ void insert(Node *space, Item item, bool rotate)
              ---*****          ---*****
          */
         
-        if(space->next_cut_orientation == 1 && item_shape.w == space->width())
+        if((space->next_cut_orientation == 1 && item_shape.w == space->width()) || item_shape.w == bin.w)
         //current cut is performed vertically
         {
             Node* left_node  = new Node;
@@ -249,6 +252,7 @@ void insert(Node *space, Item item, bool rotate)
             
             space->children.push_back(left_node);
             space->children.push_back(right_node);
+            space->next_cut_orientation = 1;
             space->type = -2;
         
             left_node->parent = space;
@@ -264,7 +268,7 @@ void insert(Node *space, Item item, bool rotate)
             return;
         }
 
-        if(space->next_cut_orientation == 0 && item_shape.h == space->height())
+        if((space->next_cut_orientation == 0 && item_shape.h == space->height()) || item_shape.h == bin.h)
         //current cut is performed horizontally
         {
             Node* left_node  = new Node;
@@ -272,6 +276,7 @@ void insert(Node *space, Item item, bool rotate)
             
             space->children.push_back(left_node);
             space->children.push_back(right_node);
+            space->next_cut_orientation = 0;
             space->type = -2;
         
             left_node->parent = space;
@@ -328,7 +333,7 @@ void insert(Node *space, Item item, bool rotate)
             space->parent->children.push_back(neighbor);
             space->children.push_back(left_child);
             space->children.push_back(right_child);
-            space->rec.w = space->width() - item_shape.w;
+            space->rec.w = item_shape.w;
             space->type = -2;
 
             return; 
@@ -456,25 +461,63 @@ void insert(Node *space, Item item, bool rotate)
 
 
 
+/************************************************************************/
+
+#pragma region Print
+
+void print_item(Node *node, Coord o, int bin)
+{
+    if(node->type > 0) {outfile << node->type << " " <<  bin << " " << node->width() << " " << node->height() << " " <<  o.x << " " << o.y << endl;}
+    for(auto child : node->children)
+    {
+        if(node->next_cut_orientation == 0) print_item(child, o, bin), o.x += child->width();
+        else print_item(child, o, bin), o.y += child->height(); 
+    }
+}
+
+void print_leftover(Node *node, Coord o, int bin)
+{
+    if(node->type == -1) {outfile << node->type << " " <<  bin << " " << node->width() << " " << node->height() << " " <<  o.x << " " << o.y << endl;}
+    for(auto child : node->children)
+    {
+        if(node->next_cut_orientation == 0) print_leftover(child, o, bin), o.x += child->width();
+        else print_leftover(child, o, bin), o.y += child->height(); 
+    }
+}
+
+void print_pattern(vector<Node*> patterns)
+{
+    for(int i = 0; i < patterns.size(); i++)
+    {
+        print_item(patterns[i], Coord(0, 0), i);
+    }
+    outfile << endl;
+    for(int i = 0; i < patterns.size(); i++)
+    {
+        print_leftover(patterns[i], Coord(0, 0), i);
+    }
+}
+
+
+#pragma endregion
+
+/************************************************************************/
+
 int main()
 {
     build_instance("test.ins2D");
     //srand(time(NULL));
-    fstream outfile("test.out");
-    outfile << bin.w << " " << bin.h << endl;
-    for (int i = 0; i < items.size(); ++i)
-    {
-        outfile << setw(3) << items[i].index << "th item "
-        << setw(3) <<items[i].rec.w << " " << setw(3) << items[i].rec.h
-        << " has " << setw(3) << items[i].type << " th type" << endl;
-    }
-    outfile.close();
+    
+    outfile << bin.w << " " << bin.h << " ";
 
     int mat_limit = bin.area() * items.size();
     Solution S, initial_solution;
     S.excluded_items = items;
     S.total_area = total_area;
     initial_solution = recreate(S, mat_limit);
-    cerr<<initial_solution.bin_number() <<endl;
+    outfile << initial_solution.bin_number() <<endl;
+    print_pattern(initial_solution.patterns);
+
+    //print(initial_solution.patterns[11]);
     return 0;
 }

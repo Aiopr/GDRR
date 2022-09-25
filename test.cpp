@@ -1,53 +1,47 @@
+#include <iostream>
 #include <cstdio>
 #include <vector>
-#include <map>
-#include <iomanip>
-#include <gdrr.h>
-
 using namespace std;
 
-//Parameters:
-double time_limit;
-int average_nodes_removed;
-double evaluation_power;
 
-#pragma region data structure for instance 
+struct Node {
+    int type; 
+    // -2 represents structure node
+    // -1 represents the leftover
+    // positive integer represents the item type
+    // the leaves are either -1 or positive integer 
+    Node* parent;
+    vector<Node*> children;
 
-Rectangle bin;
-vector<Item> items;
-map<Rectangle, int> type;
-int total_area = 0;
+    Node() {}
+    Node(const Node &x) {type = x.type; parent = NULL;children.clear();}
+};
 
-#pragma endregion
-
-void build_instance(const char *filename)
+Node* clone(Node *x)
 {
-    ifstream infile(filename);
-    int n;
-    int j, w, h, d, b, p;
-    int _t = 0;
-    Rectangle r;
-    
-    if(!infile.is_open()) cerr << "cannot open " << filename << endl;
-    
-    infile >> n >> bin.w >> bin.h;
-
-    for (int i = 0; i < n; ++i)
+    Node *new_x = new Node(*x);
+    for(auto child : x->children)
     {
-        infile >> j >> w >> h >> d >> b >> p; 
-        if(w < h) r.w = h, r.h = w; 
-        else r.w = w, r.h = h;  // guarantee that w > h for every item
-        if(!type[r]) items.push_back(Item(_t, r, 1)), type[r] = _t++;
-        else items[type[r]].num++;
-        total_area += r.area();
+        Node *new_x_child = clone(child);
+        new_x_child->parent = new_x;
+        new_x->children.push_back(new_x_child);
     }
-
-    cerr << "Successfully build an instance from " << filename << endl;
+    return new_x;
 }
 
-int main()
+void function(Node* x, vector<Node*> &spaces)
 {
-    cout << type[Rectangle(1, 1)] <<endl;
-    //build_instance("test.ins2D");
-    cout << "Hello, world!" << endl;
+    spaces.push_back(x);
+}
+int main ()
+{
+    vector<Node*> patterns;
+    Node* x1 = new Node;
+    Node* x2 = new Node;
+    Node* x3 = new Node;
+    x1->type = 1;
+    x2->type = 2;
+    x3->type = 3;
+    function(x1, patterns);
+    cout<<patterns[0]->type<<endl;
 }

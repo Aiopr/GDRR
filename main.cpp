@@ -16,7 +16,8 @@ const double evaluation_power = 1.2;
 
 
 // IO Files
-fstream outfile("test.out");
+ofstream outfile;
+ofstream Result;
 
 /************************************************************************/
 #pragma region Instance 
@@ -498,26 +499,44 @@ void print_pattern(vector<Node*> patterns)
     }
 }
 
+void print_solution(Solution best_solution)
+{
+    outfile << bin.w << " " << bin.h << " ";
+    outfile << best_solution.bin_number() << endl;
+    print_pattern(best_solution.patterns);
+}
 
 #pragma endregion
 
 /************************************************************************/
 
-int main()
+int main(int argc, char* argv[])
 {
-    build_instance("test.ins2D");
+
+    build_instance(argv[1]);
     //srand(time(NULL));
-    
-    outfile << bin.w << " " << bin.h << " ";
+    string outfile_name = "Solution/Sol_";
+    string infile_name = std::string(argv[1]);
+    if(infile_name[0] != 't') 
+        infile_name = infile_name.substr(9);
+    outfile_name += infile_name;
+    outfile.open(outfile_name.c_str());
+
 
     int mat_limit = bin.area() * items.size();
     Solution S, initial_solution;
     S.excluded_items = items;
     S.total_area = total_area;
     initial_solution = recreate(S, mat_limit);
-    outfile << initial_solution.bin_number() <<endl;
-    print_pattern(initial_solution.patterns);
+    
+    Result.open("result.csv", std::ios::app);
+    
+    Result << initial_solution.bin_number() << endl;
+    print_solution(initial_solution);
 
     //print(initial_solution.patterns[11]);
+
+    outfile.close();
+    Result.close();
     return 0;
 }

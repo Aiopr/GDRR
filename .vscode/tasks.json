@@ -11,7 +11,7 @@
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-I",
-                "D:\\Document\\VScode\\GDRR"
+                "D:\\Document\\VScode\\GDRR",
             ],
             "options": {
                 "cwd": "${fileDirname}"

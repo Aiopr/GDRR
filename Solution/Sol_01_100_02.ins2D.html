@@ -1,0 +1,766 @@
+<!DOCTYPE html><html style="font-family:Arial"><head><title>Solution large_example</title></head><body><h1>Solution</h1><h2>Statistics</h2><table><tr><th style="text-align:left">Usage</th><td>98.06451612903226%</td></tr><tr><th style="text-align:left">Part area included</th><td>100.000%</td></tr><tr><th style="text-align:left"># Objects used</th><td>31</td></tr><tr><th style="text-align:left">Material cost</th><td>3100</td></tr></table>
+<h2>Cutting Patterns</h2>
+<h3>Pattern 0</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="9" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.5" y="1.0">
+9: [9x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" transform="rotate(-90 9.5 1.0)" x="9.5" y="1.0">
+12: [1x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="10" x="0" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.0">
+1: [10x8]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 1</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="6" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" x="3.0" y="2.5">
+79: [6x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="4" x="6" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" transform="rotate(-90 8.0 5.0)" x="8.0" y="5.0">
+30: [4x10]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="6" x="0" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" x="3.0" y="7.5">
+2: [6x5]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 2</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="10" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="5.0">
+4: [10x10]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 3</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="1.0">
+15: [8x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" x="9.0" y="0.5">
+57: [2x1]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="9" stroke="black" stroke-width="0.02" width="2" x="8" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" transform="rotate(-90 9.0 5.5)" x="9.0" y="5.5">
+23: [2x9]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="8" x="0" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="6.0">
+5: [8x8]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 4</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="9" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" x="4.5" y="2.0">
+53: [9x4]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="4" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="10" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="7.0">
+8: [10x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 5</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="2.5">
+24: [8x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" transform="rotate(-90 9.0 5.0)" x="9.0" y="5.0">
+32: [2x10]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="8" x="0" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="7.5">
+10: [8x5]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 6</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="7" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" x="3.5" y="2.5">
+29: [7x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="2" x="7" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" transform="rotate(-90 8.0 2.5)" x="8.0" y="2.5">
+74: [2x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" transform="rotate(-90 9.5 5.0)" x="9.5" y="5.0">
+45: [1x10]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="9" x="0" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" x="4.5" y="7.5">
+13: [9x5]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 7</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="1.5">
+16: [8x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" transform="rotate(-90 9.0 5.0)" x="9.0" y="5.0">
+34: [2x10]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="8" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="6.5">
+14: [8x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 8</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="2.0">
+37: [8x4]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" transform="rotate(-90 9.0 5.0)" x="9.0" y="5.0">
+55: [2x10]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="8" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="7.0">
+19: [8x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 9</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="10" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="2.5">
+61: [10x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="10" x="0" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="7.5">
+21: [10x5]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 10</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="9" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" x="4.5" y="0.5">
+63: [9x1]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.005em" text-anchor="middle" x="9.5" y="0.5">
+56: [1x1]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="9" stroke="black" stroke-width="0.02" width="10" x="0" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="5.5">
+25: [10x9]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 11</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="10" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="5.0" y="1.0">
+67: [10x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="10" x="0" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.0">
+26: [10x8]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 12</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="1.0">
+38: [8x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" x="9.0" y="1.0">
+6: [2x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="10" x="0" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.0">
+35: [10x8]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 13</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="1.0">
+50: [8x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" x="9.0" y="1.0">
+66: [2x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="10" x="0" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.0">
+39: [10x8]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 14</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="7" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" x="3.5" y="2.0">
+84: [7x4]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="1" stroke="black" stroke-width="0.02" width="3" x="7" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="9" stroke="black" stroke-width="0.02" width="3" x="7" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" transform="rotate(-90 8.5 5.5)" x="8.5" y="5.5">
+11: [3x9]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="7" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" x="3.5" y="7.0">
+44: [7x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 15</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="6" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" x="3.0" y="2.0">
+43: [6x4]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="4" stroke="black" stroke-width="0.02" width="1" x="6" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="10" stroke="black" stroke-width="0.02" width="3" x="7" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" transform="rotate(-90 8.5 5.0)" x="8.5" y="5.0">
+22: [3x10]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="7" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" x="3.5" y="7.0">
+47: [7x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 16</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="10" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="1.5">
+69: [10x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="10" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.5">
+48: [10x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 17</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="6" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" x="3.0" y="1.5">
+20: [6x3]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="3" stroke="black" stroke-width="0.02" width="1" x="6" y="0"/>
+</g>
+<g>
+<rect fill="#A9D18E" height="1" stroke="black" stroke-width="0.02" width="3" x="7" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="9" stroke="black" stroke-width="0.02" width="3" x="7" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" transform="rotate(-90 8.5 5.5)" x="8.5" y="5.5">
+85: [3x9]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="7" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" x="3.5" y="6.5">
+49: [7x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 18</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="1.5">
+36: [8x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" x="9.0" y="1.0">
+73: [2x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="2" x="8" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" transform="rotate(-90 9.0 6.0)" x="9.0" y="6.0">
+64: [2x8]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="8" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="6.5">
+52: [8x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 19</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="9" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" x="4.5" y="2.0">
+92: [9x4]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="4" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="10" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="7.0">
+65: [10x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 20</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="2.0">
+42: [8x4]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" transform="rotate(-90 9.0 2.0)" x="9.0" y="2.0">
+18: [2x4]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="8" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="7.0">
+76: [8x6]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="2" x="8" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" transform="rotate(-90 9.0 7.0)" x="9.0" y="7.0">
+62: [2x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 21</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="9" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" x="4.5" y="1.5">
+95: [9x3]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="3" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="10" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.5">
+78: [10x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 22</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="1.5">
+81: [8x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.015em" text-anchor="middle" transform="rotate(-90 9.0 1.5)" x="9.0" y="1.5">
+3: [2x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="10" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.5">
+80: [10x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 23</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="6" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" x="3.0" y="1.5">
+46: [6x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="4" x="6" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" x="8.0" y="1.5">
+59: [4x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="10" x="0" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="6.5">
+88: [10x7]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 24</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="9" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" x="4.5" y="0.5">
+71: [9x1]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="1" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="9" stroke="black" stroke-width="0.02" width="10" x="0" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="5.5">
+89: [10x9]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 25</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" x="4.0" y="0.5">
+33: [8x1]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="1" stroke="black" stroke-width="0.02" width="1" x="8" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" transform="rotate(-90 9.5 1.0)" x="9.5" y="1.0">
+60: [1x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="9" stroke="black" stroke-width="0.02" width="9" x="0" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" x="4.5" y="5.5">
+98: [9x9]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="8" stroke="black" stroke-width="0.02" width="1" x="9" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" transform="rotate(-90 9.5 6.0)" x="9.5" y="6.0">
+77: [1x8]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 26</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="8" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="2.0">
+83: [8x4]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="2" x="8" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" x="9.0" y="0.5">
+82: [2x1]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="2" x="8" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.015em" text-anchor="middle" transform="rotate(-90 9.0 2.5)" x="9.0" y="2.5">
+17: [2x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="8" x="0" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.04em" text-anchor="middle" x="4.0" y="7.0">
+99: [8x6]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="2" x="8" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" transform="rotate(-90 9.0 7.0)" x="9.0" y="7.0">
+87: [2x6]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 27</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="5" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" x="2.5" y="2.5">
+28: [5x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="5" x="5" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" x="7.5" y="2.5">
+51: [5x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="10" x="0" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.05em" text-anchor="middle" x="5.0" y="7.5">
+94: [10x5]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 28</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="4" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" transform="rotate(-90 2.0 3.0)" x="2.0" y="3.0">
+68: [4x6]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="3" x="4" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.015em" text-anchor="middle" x="5.5" y="1.0">
+58: [3x2]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="2" stroke="black" stroke-width="0.02" width="2" x="7" y="0"/>
+</g>
+<g>
+<rect fill="#A9D18E" height="3" stroke="black" stroke-width="0.02" width="1" x="9" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="5" x="4" y="2"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" x="6.5" y="4.0">
+97: [5x4]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="1" x="9" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" transform="rotate(-90 9.5 6.5)" x="9.5" y="6.5">
+41: [1x7]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="4" stroke="black" stroke-width="0.02" width="9" x="0" y="6"/>
+<text dominant-baseline="middle" fill="black" font-size="0.045em" text-anchor="middle" x="4.5" y="8.0">
+96: [9x4]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 29</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="3" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" transform="rotate(-90 1.5 3.5)" x="1.5" y="3.5">
+70: [3x7]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="1" stroke="black" stroke-width="0.02" width="2" x="3" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.01em" text-anchor="middle" x="4.0" y="0.5">
+86: [2x1]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="5" x="5" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" x="7.5" y="1.5">
+72: [5x3]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="2" x="3" y="1"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" transform="rotate(-90 4.0 4.0)" x="4.0" y="4.0">
+7: [2x6]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="3" x="5" y="3"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" transform="rotate(-90 6.5 6.5)" x="6.5" y="6.5">
+75: [3x7]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="1" stroke="black" stroke-width="0.02" width="2" x="8" y="3"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="6" stroke="black" stroke-width="0.02" width="2" x="8" y="4"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" transform="rotate(-90 9.0 7.0)" x="9.0" y="7.0">
+31: [2x6]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="5" x="0" y="7"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" x="2.5" y="8.5">
+54: [5x3]
+</text>
+</g>
+</g></svg></div>
+<h3>Pattern 30</h3>
+<div style="width:1000px;"><svg height="100%" viewBox="-0.02 -0.02 10.04 10.04" width="100%" xmlns="http://www.w3.org/2000/svg">
+<g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="1" x="0" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" transform="rotate(-90 0.5 2.5)" x="0.5" y="2.5">
+27: [1x5]
+</text>
+</g>
+<g>
+<rect fill="#A9D18E" height="5" stroke="black" stroke-width="0.02" width="5" x="1" y="0"/>
+</g>
+<g>
+<rect fill="#BFBFBF" height="7" stroke="black" stroke-width="0.02" width="1" x="6" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.02em" text-anchor="middle" transform="rotate(-90 6.5 3.5)" x="6.5" y="3.5">
+40: [1x7]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="3" x="7" y="0"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" transform="rotate(-90 8.5 2.5)" x="8.5" y="2.5">
+100: [3x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="2" stroke="black" stroke-width="0.02" width="6" x="0" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.03em" text-anchor="middle" x="3.0" y="6.0">
+91: [6x2]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="5" stroke="black" stroke-width="0.02" width="3" x="7" y="5"/>
+<text dominant-baseline="middle" fill="black" font-size="0.025em" text-anchor="middle" transform="rotate(-90 8.5 7.5)" x="8.5" y="7.5">
+93: [3x5]
+</text>
+</g>
+<g>
+<rect fill="#BFBFBF" height="3" stroke="black" stroke-width="0.02" width="7" x="0" y="7"/>
+<text dominant-baseline="middle" fill="black" font-size="0.035em" text-anchor="middle" x="3.5" y="8.5">
+90: [7x3]
+</text>
+</g>
+</g></svg></div>
+</svg></div></body></html>

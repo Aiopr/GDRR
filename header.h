@@ -182,5 +182,10 @@ struct Layout {
     Rectangle rec;
 };
 
+void print_item(Node *node, Coord o, int bin);
+void print_leftover(Node *node, Coord o, int bin);
+void print_pattern(vector<Node*> patterns);
+
+void print_solution(Solution best_solution);
 #pragma endregion
 /****************************************************************************************/

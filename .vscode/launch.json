@@ -5,7 +5,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": ["CLASS/cl_10_100_09.ins2D"],
+            "args": ["test.ins2D"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

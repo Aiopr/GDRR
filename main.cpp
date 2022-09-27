@@ -13,7 +13,7 @@ using namespace std;
 // Parameters 
 const double time_limit = 5000; // 5s 
 const double evaluation_power = 1.2;
-
+const int average_removed_nodes = 4; // average remove 4 nodes every ruin 
 
 // IO Files
 ofstream outfile;
@@ -57,13 +57,12 @@ void build_instance(const char *filename)
 /************************************************************************/
 
 
-/************************************************************************/
-
 #pragma region Solution
 
 void print(Node* node)
 {
     cerr << node << " " << node->rec.w << " " << node->rec.h << " " << node->type << endl;
+    if(node->children.empty()) return;
     for(auto child : node->children)
     {
         print(child);
@@ -73,6 +72,14 @@ void print(Node* node)
 Solution recreate(Solution S, int mat_limit)
 {
     Solution S_ = S.deep_copy();
+
+    cerr << S_.excluded_items.size() << endl;
+    for(auto item : S_.excluded_items)
+    {
+        cerr << item.index << " ";
+    }
+    cerr << endl;
+
     int num_excluded = S_.excluded_items.size();
     vector<bool> E_;
     vector<bool> is_included; 
@@ -97,6 +104,7 @@ Solution recreate(Solution S, int mat_limit)
 
         // then we can generate all the insertion options
         Item chosen_item = S_.excluded_items[chosen_index];
+        
         priority_queue<Insertion, vector<Insertion>, greater<Insertion> > insertion_options;
         for(int i = 0; i < spaces.size(); i++)
         {
@@ -121,8 +129,7 @@ Solution recreate(Solution S, int mat_limit)
             double cost = min(vertical_cost(space, chosen_item, 0, evaluation_power), horizontal_cost(space, chosen_item, 0, evaluation_power));
             insertion_options.push(Insertion(-1, chosen_index, cost, 0));
         }
-
-        //while(Rand(1, 100) <= 5 && insertion_options.size() > 1) insertion_options.pop(); //blinks
+        while(Rand(1, 100) <= 5 && insertion_options.size() > 1) insertion_options.pop(); //blinks
         
         is_included[chosen_index] = 1;
         num_excluded--;
@@ -134,9 +141,9 @@ Solution recreate(Solution S, int mat_limit)
         if(chosen_insertion.space_id == -1) 
             space = S_.patterns[S_.patterns.size() - 1];
         else space = spaces[chosen_insertion.space_id];
-        Item item = items[chosen_index];
+        //cerr<< "chosen index is " << chosen_item.index << endl;
         E_[chosen_index] = 1;
-        insert(space, item, chosen_insertion.rotate);
+        insert(space, chosen_item, chosen_insertion.rotate);
     }
 
     vector<Item> tmp;
@@ -460,6 +467,122 @@ void insert(Node *space, Item item, bool rotate)
 
 /************************************************************************/
 
+#pragma region ruin
+
+Solution ruin(Solution S, int mat_limit, int average_nodes)
+{
+    Solution S_ = S.deep_copy();
+    int max_bound = 2 * average_nodes;
+    int _i = rand() % (max_bound - 1) + 1;
+    //cerr<<_i <<endl;
+    while(_i > 0 || S_.excluded_area() >= mat_limit)
+    {
+        int choose_pattern_index = Rand(0, S_.patterns.size() - 1);
+        vector<Node*> removable_nodes;
+        Node* pattern = S_.patterns[choose_pattern_index];
+        get_all_removable_nodes(pattern, removable_nodes);
+        int choose_node_index = Rand(0, removable_nodes.size() - 1);
+
+        cerr << "remove node " << removable_nodes[choose_node_index]->type << endl;
+        print(removable_nodes[choose_node_index]);
+        
+        remove_node(removable_nodes[choose_node_index], S_.excluded_items);
+        if(pattern->type == -1) 
+        {
+            auto it = S_.patterns.begin();
+            while(*it != pattern) it++;
+            S_.patterns.erase(it);
+            delete(pattern);
+            pattern = NULL;
+        }
+        _i--;
+        if(S_.patterns.empty()) break;
+    }
+    return S_;
+}
+
+void get_all_removable_nodes(Node *pattern, vector<Node*> &removable_nodes)
+{
+    if(pattern->type == -1) return; 
+    else if(pattern->type == -2)
+    {
+        removable_nodes.push_back(pattern);
+        for(auto child : pattern->children)
+        {
+            get_all_removable_nodes(child, removable_nodes);
+        }
+    }
+    else removable_nodes.push_back(pattern);
+}
+
+void remove_node(Node* node, vector<Item> &excluded_items)
+{
+    exclude(node, excluded_items);
+    if(node->rec.w == bin.w && node->rec.h == bin.h) { node->type = -1; return;}
+    Node* parent = node->parent;
+    vector<Node*> neighbors = parent->children;
+    Node* lneighbor = NULL;
+    Node* rneighbor = NULL;
+    for(int i = 0; i < neighbors.size(); i++)
+    {
+        if(neighbors[i] == node)
+        {
+            if(i > 0) lneighbor = neighbors[i - 1];
+            if(i < neighbors.size() - 1) rneighbor = neighbors[i + 1];
+            break;
+        }
+    }
+    node->type = -1;
+    node->children.clear();
+    if(lneighbor != NULL) merge_two_nodes(lneighbor, node);
+    if(rneighbor != NULL) merge_two_nodes(node, rneighbor);
+    if(node->rec.w == parent->rec.w && node->rec.h == parent->rec.h) 
+    {
+        delete(node);
+        node = NULL;
+        parent->type = -1;
+    }
+}
+
+void merge_two_nodes(Node* master, Node* slave)
+{
+    if(master->type != -1 || slave->type != -1) return;
+    if(master->next_cut_orientation == 0)
+    //current cut is performed horizontally
+    //merge height
+        master->rec.h += slave->rec.h;
+    else //merge width
+        master->rec.w += slave->rec.w;
+    auto it = master->parent->children.begin();
+    while(*it != slave)  it++;
+    master->parent->children.erase(it);
+    delete(slave);
+    slave = NULL;
+}
+
+void exclude(Node* root, vector<Item> &excluded_items)
+{
+    //cerr << "bug occur" << root->type << endl;
+    if(root->type == -1) return;
+    else if(root->type == -2) 
+    {
+        for(auto child : root->children)
+        {
+            exclude(child, excluded_items);
+        }
+    }
+    else 
+    { 
+        excluded_items.push_back(items[root->type - 1]);
+    }
+}
+
+
+#pragma endregion 
+
+
+/************************************************************************/
+
 
 
 /************************************************************************/
@@ -468,6 +591,7 @@ void insert(Node *space, Item item, bool rotate)
 
 void print_item(Node *node, Coord o, int bin)
 {
+    if(node->type == -1) return;
     if(node->type > 0) {outfile << node->type << " " <<  bin << " " << node->width() << " " << node->height() << " " <<  o.x << " " << o.y << endl;}
     for(auto child : node->children)
     {
@@ -478,6 +602,7 @@ void print_item(Node *node, Coord o, int bin)
 
 void print_leftover(Node *node, Coord o, int bin)
 {
+    if(node->type > 0) return;
     if(node->type == -1) {outfile << node->type << " " <<  bin << " " << node->width() << " " << node->height() << " " <<  o.x << " " << o.y << endl;}
     for(auto child : node->children)
     {
@@ -512,10 +637,11 @@ void print_solution(Solution best_solution)
 
 int main(int argc, char* argv[])
 {
-
     build_instance(argv[1]);
-    //srand(time(NULL));
-    string outfile_name = "Solution/Sol_";
+
+    srand(time(NULL));
+    //string outfile_name = "Solution/Sol_";
+    string outfile_name = "Test/Ruin_";
     string infile_name = std::string(argv[1]);
     if(infile_name[0] != 't') 
         infile_name = infile_name.substr(9);
@@ -528,7 +654,9 @@ int main(int argc, char* argv[])
     S.excluded_items = items;
     S.total_area = total_area;
     initial_solution = recreate(S, mat_limit);
-    
+    //print_solution(initial_solution);
+    initial_solution = ruin(initial_solution, mat_limit, average_removed_nodes);
+    initial_solution = recreate(initial_solution, mat_limit);
     Result.open("result.csv", std::ios::app);
     
     Result << initial_solution.bin_number() << endl;

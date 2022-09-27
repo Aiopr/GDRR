@@ -74,6 +74,7 @@ struct Node {
 Node* clone(Node *x) // deep copy x
 {
     Node *new_x = new Node(*x);
+    if(x->children.empty()) return new_x;
     for(auto child : x->children)
     {
         Node* new_x_child = clone(child);
@@ -110,7 +111,8 @@ struct Solution {
     {
         Node *bin = new Node;
         bin->parent = new Node;
-        bin->parent->type = -2;
+        bin->parent->children.push_back(bin);
+        bin->parent->type = -1;
         bin->rec = bin_size; 
         bin->rec = bin_size;
         patterns.push_back(bin);
@@ -162,6 +164,16 @@ inline int Rand(int st, int ed) // return a random number ranging from 0 to x;
 
 /****************************************************************************************/
 
+
+#pragma region ruin
+
+Solution ruin(Solution S, int mat_limit, const int average_nodes);
+void get_all_removable_nodes(Node *pattern, vector<Node *> &removable_nodes);
+void remove_node(Node* node, vector<Item> &excluded_items);
+void merge_two_nodes(Node* master, Node* slave);
+void exclude(Node* root, vector<Item> &excluded_items);
+
+#pragma endregion 
 
 
 
